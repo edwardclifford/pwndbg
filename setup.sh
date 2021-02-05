@@ -131,7 +131,10 @@ fi
 git submodule update --init --recursive
 
 # Find the Python version used by GDB.
-PYVER=$(gdb -batch -q --nx -ex 'pi import platform; print(".".join(platform.python_version_tuple()[:2]))')
+#PYVER=$(gdb -batch -q --nx -ex 'pi import platform; print(".".join(platform.python_version_tuple()[:2]))')
+
+#Overwrite Python version
+PYVER="3.7"
 PYTHON+=$(gdb -batch -q --nx -ex 'pi import sys; print(sys.executable)')
 PYTHON+="${PYVER}"
 
